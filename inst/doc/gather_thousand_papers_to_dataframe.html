@@ -12,7 +12,7 @@
 
 <meta name="author" content="Alfonso R. Reyes" />
 
-<meta name="date" content="2017-10-27" />
+<meta name="date" content="2017-11-02" />
 
 <title>Thousands of Papers to Dataframe</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Thousands of Papers to Dataframe</h1>
 <h4 class="author"><em>Alfonso R. Reyes</em></h4>
-<h4 class="date"><em>2017-10-27</em></h4>
+<h4 class="date"><em>2017-11-02</em></h4>
 
 
 
@@ -85,7 +85,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
                           <span class="dt">how =</span> <span class="st">&quot;all&quot;</span>)
 
 <span class="kw">get_papers_count</span>(my_url)</code></pre></div>
-<pre><code>## [1] 4045</code></pre>
+<pre><code>## [1] 4049</code></pre>
 </div>
 <div id="what-type-of-paper-do-we-have" class="section level2">
 <h2>What type of paper do we have?</h2>
@@ -94,7 +94,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##               name value
 ##              &lt;chr&gt; &lt;dbl&gt;
 ## 1          Chapter     1
-## 2 Conference paper  3076
+## 2 Conference paper  3080
 ## 3          General    60
 ## 4    Journal paper   895
 ## 5            Media     5
@@ -114,7 +114,7 @@ my_url_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">
                           <span class="dt">rows  =</span> <span class="dv">1000</span>)
 
 <span class="kw">get_papers_count</span>(my_url_<span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 3076</code></pre>
+<pre><code>## [1] 3080</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">page_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">read_onepetro</span>(my_url_<span class="dv">1</span>)
 htm_<span class="dv">1</span> &lt;-<span class="st"> &quot;pta-01-conference.html&quot;</span>
 xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span class="dv">1</span>, <span class="dt">file =</span> htm_<span class="dv">1</span>)
@@ -125,12 +125,12 @@ xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span clas
 ##  1                             Pressure Transient Analysis in SAGD
 ##  2                           Well-head Pressure Transient Analysis
 ##  3     Automated Pressure Transient Analysis with Smart Technology
-##  4  Pressure Transient Analysis in Multilayered Faulted Reservoirs
-##  5  Pressure Transient Analysis of Multifractured Horizontal Wells
+##  4  Pressure Transient Analysis of Multifractured Horizontal Wells
+##  5  Pressure Transient Analysis in Multilayered Faulted Reservoirs
 ##  6 Integrating Pressure Transient Analysis in Hydraulic Fracturing
-##  7         Software Showcase: Pressure Transient Analysis Programs
-##  8             Numerical Solutions for Pressure Transient Analysis
-##  9        How Wellbore Dynamics Affect Pressure Transient Analysis
+##  7        How Wellbore Dynamics Affect Pressure Transient Analysis
+##  8         Software Showcase: Pressure Transient Analysis Programs
+##  9             Numerical Solutions for Pressure Transient Analysis
 ## 10                Pressure-Transient Analysis for Perforated Wells
 ## # ... with 990 more rows, and 5 more variables: paper_id &lt;chr&gt;,
 ## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
@@ -150,16 +150,16 @@ xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span clas
 <pre><code>## # A tibble: 1,000 x 6
 ##                                                                     title_data
 ##                                                                          &lt;chr&gt;
-##  1 Geophysical Monitoring of the Multilayer Reservoir with of Flooding and Ind
-##  2 Geophysical Monitoring of the Multilayer Reservoir with of Flooding and Ind
-##  3                             Low Salinity Flooding Trial at West Salym Field
-##  4 A Novel Approach for Production Transient Analysis of Shale Gas/Oil Reservo
-##  5 Physics-Based Approach for Shale Gas Numerical Simulation: Quintuple Porosi
-##  6 Application of Multi-Level and High-Resolution Fracture Modeling in Field-S
-##  7          The Value of Transient Temperature Responses in Testing Operations
-##  8 An Improved Boundary Element Method for Modeling Fluid Flow through Fractur
-##  9 A Semi-Analytical Model for Extended-Reach Wells with Wellbore Flow Splitti
-## 10    Modeling and Interpretation of the Bottomhole Temperature Transient Data
+##  1 Pressure Transient Behavior of Horizontal Wells Intersecting Multiple Hydra
+##  2 Physics-Based Approach for Shale Gas Numerical Simulation: Quintuple Porosi
+##  3 An Improved Boundary Element Method for Modeling Fluid Flow through Fractur
+##  4          The Value of Transient Temperature Responses in Testing Operations
+##  5 Application of Multi-Level and High-Resolution Fracture Modeling in Field-S
+##  6               Rate Decline, Power Laws, and Subdiffusion in Fractured Rocks
+##  7 A Practical Workflow for Probabilistic History Matching and Forecast Uncert
+##  8 Geophysical Monitoring of the Multilayer Reservoir with of Flooding and Ind
+##  9 Geophysical Monitoring of the Multilayer Reservoir with of Flooding and Ind
+## 10                             Low Salinity Flooding Trial at West Salym Field
 ## # ... with 990 more rows, and 5 more variables: paper_id &lt;chr&gt;,
 ## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
 </div>
@@ -178,16 +178,16 @@ xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span clas
 <pre><code>## # A tibble: 1,000 x 6
 ##                                                                     title_data
 ##                                                                          &lt;chr&gt;
-##  1 Application of a Systematic Technique for the Dynamic Characterization of C
-##  2 Establishing Key Reservoir Parameters With Diagnostic Fracture Injection Te
-##  3 Successful Exploitation of Heterogeneous Unconsolidated Clastic Gas Reservo
-##  4 New Structural Evolution Model for the North Kuwait Carbonate Fields and it
-##  5 Modeling and History Matching of Hydrocarbon Production from Marcellus Shal
-##  6 Improved Permeability Prediction in Heterogeneous Carbonate Reservoirs: A n
-##  7               The Emerging Unconventional Upper Jurassic Oil Play in Mexico
-##  8 Why Double Porosity Models Are Not Applicable To Simulating The Gas Condens
-##  9 Why Dual Porosity Models are not Applicable for Simulation of the Near-Well
-## 10 Heat Transfer Ahead of a SAGD Steam Chamber: A Study of Thermocouple Data F
+##  1 Case History: Production Results From Partial Monolayer Proppant Fracture T
+##  2                              Development Of Boomerang Hills Area Of Bolivia
+##  3 Subzero Hydraulic Fracturing: A Field Case Study, Lisburne Carbonate Reserv
+##  4 Slug Testing in Multiple Coal Seams Intersected by a Single, Vertical Fract
+##  5 Interpretation of Horizontal Well Performance in Complicated Systems by the
+##  6 Numerical Study of the Effects of Lean Zones on SAGD Performance in Periodi
+##  7 Integrating Pressure Transient Test Data With Seismic Attribute Analysis to
+##  8 Propellant Perforation Breakdown Technique: Eastern Venezuela Field Applica
+##  9        Multirate Well Testing to Evaluate the Effectiveness of Frac Packing
+## 10       Improving Reservoir Characterization Using Accurate Flow-Rate History
 ## # ... with 990 more rows, and 5 more variables: paper_id &lt;chr&gt;,
 ## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
 </div>
@@ -203,20 +203,20 @@ page_<span class="dv">4</span> &lt;-<span class="st"> </span><span class="kw">re
 htm_<span class="dv">4</span> &lt;-<span class="st"> &quot;pta-04-conference.html&quot;</span>
 xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span class="dv">4</span>, <span class="dt">file =</span> htm_<span class="dv">4</span>)
 <span class="kw">onepetro_page_to_dataframe</span>(htm_<span class="dv">4</span>)</code></pre></div>
-<pre><code>## # A tibble: 76 x 6
+<pre><code>## # A tibble: 80 x 6
 ##                                                                     title_data
 ##                                                                          &lt;chr&gt;
-##  1      Transient Analysis of Tight Gas Well Performance - More Case Histories
-##  2 Pressure Transient and Decline Curve Behaviors in Naturally Fractured Vuggy
-##  3 The Significance of Non-Darcy and Multiphase Flow Effects in High-Rate, Fra
-##  4      Effect Of Drainage Area Shapes On The Productivity Of Horizontal Wells
-##  5 A Predictive Model for Analyzing Erosional Velocity and Corrosion Effects E
-##  6 A Step by Step Approach to Hydraulic Fracture Treatment Design, Implementat
-##  7 Approximate Analytical Solutions for the Pressure Response at a Water Injec
-##  8 Fluid Flow in a Fractured Reservoir Using a Geomechanically-Constrained Fau
-##  9 Evaluating Barnett Shale Production Performance-Using an Integrated Approac
-## 10 A Semi-Analytic (p/z) Rate-Time Relation for the Analysis and Prediction of
-## # ... with 66 more rows, and 5 more variables: paper_id &lt;chr&gt;,
+##  1 From Operations to Desktop Analysis to Field Implementation: Well and ESP O
+##  2 Fracture and Wellbore Spacing Optimization in Multistage Fractured Horizont
+##  3 Horizontal-Well Productivity Equations With Both Uniform-Flux and Uniform-P
+##  4 Adopting North American, Multi-stage Fracturing and Horizontal Completion T
+##  5                       The Role of Natural Fractures in Shale Gas Production
+##  6                     Experience from the Use of Automatic Well-Test Analysis
+##  7 Using Empirically Developed Rock Tables to Predict and History Match Fractu
+##  8                                           Horizontal Well Pressure Analysis
+##  9 Analytical Hindered-Matrix-Fracture Transfer Models For Naturally Fractured
+## 10      Semi-Analytical Model for Reservoirs with Forchheimer's Non-Darcy Flow
+## # ... with 70 more rows, and 5 more variables: paper_id &lt;chr&gt;,
 ## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
 </div>
 <div id="binding-tables-in-one-dataframe" class="section level2">
@@ -228,20 +228,20 @@ p4 &lt;-<span class="st"> </span><span class="kw">onepetro_page_to_dataframe</sp
 
 papers &lt;-<span class="st"> </span><span class="kw">rbind</span>(p1, p2, p3, p4)
 papers</code></pre></div>
-<pre><code>## # A tibble: 3,076 x 6
+<pre><code>## # A tibble: 3,080 x 6
 ##                                                         title_data
 ##                                                              &lt;chr&gt;
 ##  1                             Pressure Transient Analysis in SAGD
 ##  2                           Well-head Pressure Transient Analysis
 ##  3     Automated Pressure Transient Analysis with Smart Technology
-##  4  Pressure Transient Analysis in Multilayered Faulted Reservoirs
-##  5  Pressure Transient Analysis of Multifractured Horizontal Wells
+##  4  Pressure Transient Analysis of Multifractured Horizontal Wells
+##  5  Pressure Transient Analysis in Multilayered Faulted Reservoirs
 ##  6 Integrating Pressure Transient Analysis in Hydraulic Fracturing
-##  7         Software Showcase: Pressure Transient Analysis Programs
-##  8             Numerical Solutions for Pressure Transient Analysis
-##  9        How Wellbore Dynamics Affect Pressure Transient Analysis
+##  7        How Wellbore Dynamics Affect Pressure Transient Analysis
+##  8         Software Showcase: Pressure Transient Analysis Programs
+##  9             Numerical Solutions for Pressure Transient Analysis
 ## 10                Pressure-Transient Analysis for Perforated Wells
-## # ... with 3,066 more rows, and 5 more variables: paper_id &lt;chr&gt;,
+## # ... with 3,070 more rows, and 5 more variables: paper_id &lt;chr&gt;,
 ## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
 </div>
 <div id="find-which-papers-have-the-search-word-in-the-title" class="section level2">
@@ -250,18 +250,18 @@ papers</code></pre></div>
 rows &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="dt">pattern =</span> pattern, papers<span class="op">$</span>title_data, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>)
 papers[rows, ]</code></pre></div>
 <pre><code>## # A tibble: 163 x 6
-##                                                                 title_data
-##                                                                      &lt;chr&gt;
-##  1                                     Pressure Transient Analysis in SAGD
-##  2                                   Well-head Pressure Transient Analysis
-##  3             Automated Pressure Transient Analysis with Smart Technology
-##  4          Pressure Transient Analysis in Multilayered Faulted Reservoirs
-##  5          Pressure Transient Analysis of Multifractured Horizontal Wells
-##  6         Integrating Pressure Transient Analysis in Hydraulic Fracturing
-##  7                 Software Showcase: Pressure Transient Analysis Programs
-##  8                     Numerical Solutions for Pressure Transient Analysis
-##  9                How Wellbore Dynamics Affect Pressure Transient Analysis
-## 10 Pressure Transient Analysis and Inflow Performance for Horizontal Wells
+##                                                           title_data
+##                                                                &lt;chr&gt;
+##  1                               Pressure Transient Analysis in SAGD
+##  2                             Well-head Pressure Transient Analysis
+##  3       Automated Pressure Transient Analysis with Smart Technology
+##  4    Pressure Transient Analysis of Multifractured Horizontal Wells
+##  5    Pressure Transient Analysis in Multilayered Faulted Reservoirs
+##  6   Integrating Pressure Transient Analysis in Hydraulic Fracturing
+##  7          How Wellbore Dynamics Affect Pressure Transient Analysis
+##  8           Software Showcase: Pressure Transient Analysis Programs
+##  9               Numerical Solutions for Pressure Transient Analysis
+## 10 Generalization of Wellbore Effects in Pressure Transient Analysis
 ## # ... with 153 more rows, and 5 more variables: paper_id &lt;chr&gt;,
 ## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># remove files that were created</span>
