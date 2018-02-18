@@ -12,7 +12,7 @@
 
 <meta name="author" content="Alfonso R. Reyes" />
 
-<meta name="date" content="2017-11-02" />
+<meta name="date" content="2018-02-18" />
 
 <title>Improving the word cloud: custom stopwords</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Improving the word cloud: custom stopwords</h1>
 <h4 class="author"><em>Alfonso R. Reyes</em></h4>
-<h4 class="date"><em>2017-11-02</em></h4>
+<h4 class="date"><em>2018-02-18</em></h4>
 
 
 
@@ -95,20 +95,19 @@ p3 &lt;-<span class="st"> </span><span class="kw">onepetro_page_to_dataframe</sp
 nn_papers &lt;-<span class="st"> </span><span class="kw">rbind</span>(p1, p2, p3)
 nn_papers</code></pre></div>
 <pre><code>## # A tibble: 2,918 x 6
-##                                                    title_data
-##                                                         &lt;chr&gt;
-##  1                                    Neural Networks And AVO
-##  2                        Deconvolution Using Neural Networks
-##  3                   Neural Network Stacking Velocity Picking
-##  4           Hydrocarbon Prediction Using Dual Neural Network
-##  5      Higher-Order Neural Networks in Petroleum Engineering
-##  6  Multiple Attenuation With Attribute-based Neural Networks
-##  7   Conductive fracture identification using neural networks
-##  8           APPLYING NEURAL NETWORK IN HYDROTREATING PROCESS
-##  9                 Bit Bounce Detection Using Neural Networks
-## 10 Artificial Neural Networks in Drilling Troubles Prediction
-## # ... with 2,908 more rows, and 5 more variables: paper_id &lt;chr&gt;,
-## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
+##    title_data       paper_id   source   type     year author1_data        
+##    &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;               
+##  1 Neural Networks~ &quot;        ~ &quot;      ~ &quot;     ~  2002 Russell, Brian, Ham~
+##  2 Deconvolution U~ &quot;        ~ &quot;      ~ &quot;     ~  1996 Essenreiter, Robert~
+##  3 Neural Network ~ &quot;        ~ &quot;      ~ &quot;     ~  1992 Schmidt, Jumndyr, P~
+##  4 Hydrocarbon Pre~ &quot;        ~ &quot;      ~ &quot;     ~  2000 Xiangjun, Zhang, In~
+##  5 Higher-Order Ne~ &quot;        ~ &quot;      ~ &quot;     ~  1994 Kumoluyi, A.O., Imp~
+##  6 Multiple Attenu~ &quot;        ~ &quot;      ~ &quot;     ~  2000 Karrenbach, M., Uni~
+##  7 Conductive frac~ &quot;        ~ &quot;      ~ &quot;     ~  1995 Thomas, Andrew L., ~
+##  8 APPLYING NEURAL~ &quot;        ~ &quot;      ~ &quot;     ~  2002 Silva, M., Petróleo~
+##  9 Bit Bounce Dete~ &quot;        ~ &quot;      ~ &quot;     ~  2004 Vassallo, Massimili~
+## 10 Artificial Neur~ &quot;        ~ &quot;      ~ &quot;     ~  2014 Lind, Yuliya B., Ba~
+## # ... with 2,908 more rows</code></pre>
 </div>
 <div id="convert-and-clean-document-for-text-mining" class="section level2">
 <h2>Convert and clean document for text mining</h2>
@@ -146,18 +145,18 @@ tdm.rs &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="k
 tdm.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(tdm.rs), <span class="dt">freq =</span> tdm.rs, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
 <span class="kw">as.tibble</span>(tdm.df)                          <span class="co"># prevent long printing of dataframe</span></code></pre></div>
 <pre><code>## # A tibble: 5,133 x 2
-##          word  freq
-##  *      &lt;chr&gt; &lt;dbl&gt;
-##  1     neural   520
-##  2  reservoir   499
-##  3       data   348
-##  4    seismic   291
-##  5    network   288
+##    word        freq
+##  * &lt;chr&gt;      &lt;dbl&gt;
+##  1 neural       520
+##  2 reservoir    499
+##  3 data         348
+##  4 seismic      291
+##  5 network      288
 ##  6 artificial   283
-##  7   analysis   249
+##  7 analysis     249
 ##  8 prediction   245
-##  9   networks   227
-## 10      field   218
+##  9 networks     227
+## 10 field        218
 ## # ... with 5,123 more rows</code></pre>
 <p>You see now that <em>using</em> is not at the top of the table as it was before. Let’s plot the wordcloud.</p>
 </div>

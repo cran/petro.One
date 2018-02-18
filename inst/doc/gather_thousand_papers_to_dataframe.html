@@ -12,7 +12,7 @@
 
 <meta name="author" content="Alfonso R. Reyes" />
 
-<meta name="date" content="2017-11-02" />
+<meta name="date" content="2018-02-18" />
 
 <title>Thousands of Papers to Dataframe</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Thousands of Papers to Dataframe</h1>
 <h4 class="author"><em>Alfonso R. Reyes</em></h4>
-<h4 class="date"><em>2017-11-02</em></h4>
+<h4 class="date"><em>2018-02-18</em></h4>
 
 
 
@@ -85,21 +85,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
                           <span class="dt">how =</span> <span class="st">&quot;all&quot;</span>)
 
 <span class="kw">get_papers_count</span>(my_url)</code></pre></div>
-<pre><code>## [1] 4049</code></pre>
+<pre><code>## [1] 4105</code></pre>
 </div>
 <div id="what-type-of-paper-do-we-have" class="section level2">
 <h2>What type of paper do we have?</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">papers_by_type</span>(my_url)</code></pre></div>
 <pre><code>## # A tibble: 7 x 2
-##               name value
-##              &lt;chr&gt; &lt;dbl&gt;
-## 1          Chapter     1
-## 2 Conference paper  3080
-## 3          General    60
-## 4    Journal paper   895
-## 5            Media     5
-## 6            Other     1
-## 7     Presentation     7</code></pre>
+##   name               value
+##   &lt;chr&gt;              &lt;dbl&gt;
+## 1 Chapter             1.00
+## 2 Conference paper 3126   
+## 3 General            60.0 
+## 4 Journal paper     905   
+## 5 Media               5.00
+## 6 Other               1.00
+## 7 Presentation        7.00</code></pre>
 <p>For the tyme being we will retrieve only conference papers.</p>
 </div>
 <div id="collect-first-1000-rows" class="section level2">
@@ -114,26 +114,25 @@ my_url_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">
                           <span class="dt">rows  =</span> <span class="dv">1000</span>)
 
 <span class="kw">get_papers_count</span>(my_url_<span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 3080</code></pre>
+<pre><code>## [1] 3126</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">page_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">read_onepetro</span>(my_url_<span class="dv">1</span>)
 htm_<span class="dv">1</span> &lt;-<span class="st"> &quot;pta-01-conference.html&quot;</span>
 xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span class="dv">1</span>, <span class="dt">file =</span> htm_<span class="dv">1</span>)
 <span class="kw">onepetro_page_to_dataframe</span>(htm_<span class="dv">1</span>)</code></pre></div>
 <pre><code>## # A tibble: 1,000 x 6
-##                                                         title_data
-##                                                              &lt;chr&gt;
-##  1                             Pressure Transient Analysis in SAGD
-##  2                           Well-head Pressure Transient Analysis
-##  3     Automated Pressure Transient Analysis with Smart Technology
-##  4  Pressure Transient Analysis of Multifractured Horizontal Wells
-##  5  Pressure Transient Analysis in Multilayered Faulted Reservoirs
-##  6 Integrating Pressure Transient Analysis in Hydraulic Fracturing
-##  7        How Wellbore Dynamics Affect Pressure Transient Analysis
-##  8         Software Showcase: Pressure Transient Analysis Programs
-##  9             Numerical Solutions for Pressure Transient Analysis
-## 10                Pressure-Transient Analysis for Perforated Wells
-## # ... with 990 more rows, and 5 more variables: paper_id &lt;chr&gt;,
-## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
+##    title_data        paper_id   source   type     year author1_data       
+##    &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;              
+##  1 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  2003 Rabb, J., Petro-Ca~
+##  2 Well-head Pressu~ &quot;        ~ &quot;      ~ &quot;     ~  2013 Spyrou, Charidimos~
+##  3 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1994 Larsen, Leif, Stat~
+##  4 Integrating Pres~ &quot;        ~ &quot;      ~ &quot;     ~  2006 Rahim, Zillur, Res~
+##  5 Automated Pressu~ &quot;        ~ &quot;      ~ &quot;     ~  2011 Rees, Hugh Richard~
+##  6 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1995 Sahni, A., Univers~
+##  7 How Wellbore Dyn~ &quot;        ~ &quot;      ~ &quot;     ~  1991 Mattar, L., Fekete~
+##  8 Numerical Soluti~ &quot;        ~ &quot;      ~ &quot;     ~  1993 Warren, G.M., SIMT~
+##  9 Software Showcas~ &quot;        ~ &quot;      ~ &quot;     ~  1992 Baldwin, J.O., Con~
+## 10 Pressure-Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1998 Yildiz, Turhan, Si~
+## # ... with 990 more rows</code></pre>
 </div>
 <div id="collect-second-set-of-1000-rows" class="section level2">
 <h2>Collect second set of 1000 rows</h2>
@@ -148,20 +147,19 @@ htm_<span class="dv">2</span> &lt;-<span class="st"> &quot;pta-02-conference.htm
 xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span class="dv">2</span>, <span class="dt">file =</span> htm_<span class="dv">2</span>)
 <span class="kw">onepetro_page_to_dataframe</span>(htm_<span class="dv">2</span>)</code></pre></div>
 <pre><code>## # A tibble: 1,000 x 6
-##                                                                     title_data
-##                                                                          &lt;chr&gt;
-##  1 Pressure Transient Behavior of Horizontal Wells Intersecting Multiple Hydra
-##  2 Physics-Based Approach for Shale Gas Numerical Simulation: Quintuple Porosi
-##  3 An Improved Boundary Element Method for Modeling Fluid Flow through Fractur
-##  4          The Value of Transient Temperature Responses in Testing Operations
-##  5 Application of Multi-Level and High-Resolution Fracture Modeling in Field-S
-##  6               Rate Decline, Power Laws, and Subdiffusion in Fractured Rocks
-##  7 A Practical Workflow for Probabilistic History Matching and Forecast Uncert
-##  8 Geophysical Monitoring of the Multilayer Reservoir with of Flooding and Ind
-##  9 Geophysical Monitoring of the Multilayer Reservoir with of Flooding and Ind
-## 10                             Low Salinity Flooding Trial at West Salym Field
-## # ... with 990 more rows, and 5 more variables: paper_id &lt;chr&gt;,
-## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
+##    title_data            paper_id   source  type    year author1_data     
+##    &lt;chr&gt;                 &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;            
+##  1 Identification of Re~ &quot;        ~ &quot;     ~ &quot;    ~  2017 Asalkhuzina, G. ~
+##  2 Improving the Conduc~ &quot;        ~ &quot;     ~ &quot;    ~  2016 Keshavarz, Alire~
+##  3 Characterization of ~ &quot;        ~ &quot;     ~ &quot;    ~  2016 Zhan, J., Univer~
+##  4 A Comprehensive Mode~ &quot;        ~ &quot;     ~ &quot;    ~  2016 Chen, Z. M., Chi~
+##  5 The Value of Reservo~ &quot;        ~ &quot;     ~ &quot;    ~  2017 Shbair, Alaa F.,~
+##  6 Modeling the Depleti~ &quot;        ~ &quot;     ~ &quot;    ~  2017 Zhang, Fengshou,~
+##  7 Evaluation Of The Ef~ &quot;        ~ &quot;     ~ &quot;    ~  2015 Ali, Tariq A., C~
+##  8 Methods of Research ~ &quot;        ~ &quot;     ~ &quot;    ~  2015 Davletbaev, A., ~
+##  9 Identification and C~ &quot;        ~ &quot;     ~ &quot;    ~  2015 Ding, Shuaiwei, ~
+## 10 AOF Analysis of One ~ &quot;        ~ &quot;     ~ &quot;    ~  2015 Pang, Wei, Sinop~
+## # ... with 990 more rows</code></pre>
 </div>
 <div id="collect-next-set-of-1000-rows" class="section level2">
 <h2>Collect next set of 1000 rows</h2>
@@ -176,20 +174,19 @@ htm_<span class="dv">3</span> &lt;-<span class="st"> &quot;pta-03-conference.htm
 xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span class="dv">3</span>, <span class="dt">file =</span> htm_<span class="dv">3</span>)
 <span class="kw">onepetro_page_to_dataframe</span>(htm_<span class="dv">3</span>)</code></pre></div>
 <pre><code>## # A tibble: 1,000 x 6
-##                                                                     title_data
-##                                                                          &lt;chr&gt;
-##  1 Case History: Production Results From Partial Monolayer Proppant Fracture T
-##  2                              Development Of Boomerang Hills Area Of Bolivia
-##  3 Subzero Hydraulic Fracturing: A Field Case Study, Lisburne Carbonate Reserv
-##  4 Slug Testing in Multiple Coal Seams Intersected by a Single, Vertical Fract
-##  5 Interpretation of Horizontal Well Performance in Complicated Systems by the
-##  6 Numerical Study of the Effects of Lean Zones on SAGD Performance in Periodi
-##  7 Integrating Pressure Transient Test Data With Seismic Attribute Analysis to
-##  8 Propellant Perforation Breakdown Technique: Eastern Venezuela Field Applica
-##  9        Multirate Well Testing to Evaluate the Effectiveness of Frac Packing
-## 10       Improving Reservoir Characterization Using Accurate Flow-Rate History
-## # ... with 990 more rows, and 5 more variables: paper_id &lt;chr&gt;,
-## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
+##    title_data              paper_id   source  type     year author1_data  
+##    &lt;chr&gt;                   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;         
+##  1 Analytical and Numeric~ &quot;        ~ &quot;     ~ &quot;     ~  2013 Alharthy, Naj~
+##  2 Data Acquisition In Pu~ &quot;        ~ &quot;     ~ &quot;     ~  2006 Cimic, Miljen~
+##  3 Characterisation and M~ &quot;        ~ &quot;     ~ &quot;     ~  2012 Sirat, Manhal~
+##  4 Estimating Non-Darcy F~ &quot;        ~ &quot;     ~ &quot;     ~  2002 Spivey, J.P.,~
+##  5 Radius of Investigatio~ &quot;        ~ &quot;     ~ &quot;     ~  2009 Kuchuk, Fikri~
+##  6 Examples of Advanced T~ &quot;        ~ &quot;     ~ &quot;     ~  2012 Cardoso, Elme~
+##  7 Analysis of Decline Cu~ &quot;        ~ &quot;     ~ &quot;     ~  2014 Shahamat, M.S~
+##  8 Application of Linear ~ &quot;        ~ &quot;     ~ &quot;     ~  1982 Kohlhaas, Cha~
+##  9 Rate Behavior of Compo~ &quot;        ~ &quot;     ~ &quot;     ~  1991 Olarewaju, J.~
+## 10 Pressure Transient and~ &quot;        ~ &quot;     ~ &quot;     ~  2004 Fuentes-Cruz,~
+## # ... with 990 more rows</code></pre>
 </div>
 <div id="collect-remaining-set" class="section level2">
 <h2>Collect remaining set</h2>
@@ -203,21 +200,20 @@ page_<span class="dv">4</span> &lt;-<span class="st"> </span><span class="kw">re
 htm_<span class="dv">4</span> &lt;-<span class="st"> &quot;pta-04-conference.html&quot;</span>
 xml2<span class="op">::</span><span class="kw">write_html</span>(page_<span class="dv">4</span>, <span class="dt">file =</span> htm_<span class="dv">4</span>)
 <span class="kw">onepetro_page_to_dataframe</span>(htm_<span class="dv">4</span>)</code></pre></div>
-<pre><code>## # A tibble: 80 x 6
-##                                                                     title_data
-##                                                                          &lt;chr&gt;
-##  1 From Operations to Desktop Analysis to Field Implementation: Well and ESP O
-##  2 Fracture and Wellbore Spacing Optimization in Multistage Fractured Horizont
-##  3 Horizontal-Well Productivity Equations With Both Uniform-Flux and Uniform-P
-##  4 Adopting North American, Multi-stage Fracturing and Horizontal Completion T
-##  5                       The Role of Natural Fractures in Shale Gas Production
-##  6                     Experience from the Use of Automatic Well-Test Analysis
-##  7 Using Empirically Developed Rock Tables to Predict and History Match Fractu
-##  8                                           Horizontal Well Pressure Analysis
-##  9 Analytical Hindered-Matrix-Fracture Transfer Models For Naturally Fractured
-## 10      Semi-Analytical Model for Reservoirs with Forchheimer's Non-Darcy Flow
-## # ... with 70 more rows, and 5 more variables: paper_id &lt;chr&gt;,
-## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
+<pre><code>## # A tibble: 100 x 6
+##    title_data             paper_id  source  type     year author1_data    
+##    &lt;chr&gt;                  &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;           
+##  1 Analysis of Coal Gas ~ &quot;       ~ &quot;     ~ &quot;     ~  1993 Mavor, M.J., Re~
+##  2 &quot;Analysis of Pressure~ &quot;       ~ &quot;     ~ &quot;     ~  1999 Tiab, Djebbar, ~
+##  3 Gas Storage Capacity ~ &quot;       ~ &quot;     ~ &quot;     ~  2014 Kang, Seungmo, ~
+##  4 Fast-Marching Methods~ &quot;       ~ &quot;     ~ &quot;     ~  2013 Zhang, Yanbin, ~
+##  5 Pressure Transient Be~ &quot;       ~ &quot;     ~ &quot;     ~  1983 Okpobiri, G.A.,~
+##  6 Interwell Tracer Test~ &quot;       ~ &quot;     ~ &quot;     ~  2005 Du, Yuqi, Chevr~
+##  7 New Models for Time-C~ &quot;       ~ &quot;     ~ &quot;     ~  2016 Yousuf, Wajid, ~
+##  8 Numerical Simulation ~ &quot;       ~ &quot;     ~ &quot;     ~  1986 Nakornthap, K.,~
+##  9 Predicting Horizontal~ &quot;       ~ &quot;     ~ &quot;     ~  1989 Chang, M-M., Na~
+## 10 Production Data Analy~ &quot;       ~ &quot;     ~ &quot;     ~  2008 Lewis, Adam Mic~
+## # ... with 90 more rows</code></pre>
 </div>
 <div id="binding-tables-in-one-dataframe" class="section level2">
 <h2>Binding tables in one dataframe</h2>
@@ -228,21 +224,20 @@ p4 &lt;-<span class="st"> </span><span class="kw">onepetro_page_to_dataframe</sp
 
 papers &lt;-<span class="st"> </span><span class="kw">rbind</span>(p1, p2, p3, p4)
 papers</code></pre></div>
-<pre><code>## # A tibble: 3,080 x 6
-##                                                         title_data
-##                                                              &lt;chr&gt;
-##  1                             Pressure Transient Analysis in SAGD
-##  2                           Well-head Pressure Transient Analysis
-##  3     Automated Pressure Transient Analysis with Smart Technology
-##  4  Pressure Transient Analysis of Multifractured Horizontal Wells
-##  5  Pressure Transient Analysis in Multilayered Faulted Reservoirs
-##  6 Integrating Pressure Transient Analysis in Hydraulic Fracturing
-##  7        How Wellbore Dynamics Affect Pressure Transient Analysis
-##  8         Software Showcase: Pressure Transient Analysis Programs
-##  9             Numerical Solutions for Pressure Transient Analysis
-## 10                Pressure-Transient Analysis for Perforated Wells
-## # ... with 3,070 more rows, and 5 more variables: paper_id &lt;chr&gt;,
-## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
+<pre><code>## # A tibble: 3,100 x 6
+##    title_data        paper_id   source   type     year author1_data       
+##    &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;              
+##  1 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  2003 Rabb, J., Petro-Ca~
+##  2 Well-head Pressu~ &quot;        ~ &quot;      ~ &quot;     ~  2013 Spyrou, Charidimos~
+##  3 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1994 Larsen, Leif, Stat~
+##  4 Integrating Pres~ &quot;        ~ &quot;      ~ &quot;     ~  2006 Rahim, Zillur, Res~
+##  5 Automated Pressu~ &quot;        ~ &quot;      ~ &quot;     ~  2011 Rees, Hugh Richard~
+##  6 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1995 Sahni, A., Univers~
+##  7 How Wellbore Dyn~ &quot;        ~ &quot;      ~ &quot;     ~  1991 Mattar, L., Fekete~
+##  8 Numerical Soluti~ &quot;        ~ &quot;      ~ &quot;     ~  1993 Warren, G.M., SIMT~
+##  9 Software Showcas~ &quot;        ~ &quot;      ~ &quot;     ~  1992 Baldwin, J.O., Con~
+## 10 Pressure-Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1998 Yildiz, Turhan, Si~
+## # ... with 3,090 more rows</code></pre>
 </div>
 <div id="find-which-papers-have-the-search-word-in-the-title" class="section level2">
 <h2>Find which papers have the search word in the title</h2>
@@ -250,20 +245,19 @@ papers</code></pre></div>
 rows &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="dt">pattern =</span> pattern, papers<span class="op">$</span>title_data, <span class="dt">ignore.case =</span> <span class="ot">TRUE</span>)
 papers[rows, ]</code></pre></div>
 <pre><code>## # A tibble: 163 x 6
-##                                                           title_data
-##                                                                &lt;chr&gt;
-##  1                               Pressure Transient Analysis in SAGD
-##  2                             Well-head Pressure Transient Analysis
-##  3       Automated Pressure Transient Analysis with Smart Technology
-##  4    Pressure Transient Analysis of Multifractured Horizontal Wells
-##  5    Pressure Transient Analysis in Multilayered Faulted Reservoirs
-##  6   Integrating Pressure Transient Analysis in Hydraulic Fracturing
-##  7          How Wellbore Dynamics Affect Pressure Transient Analysis
-##  8           Software Showcase: Pressure Transient Analysis Programs
-##  9               Numerical Solutions for Pressure Transient Analysis
-## 10 Generalization of Wellbore Effects in Pressure Transient Analysis
-## # ... with 153 more rows, and 5 more variables: paper_id &lt;chr&gt;,
-## #   source &lt;chr&gt;, type &lt;chr&gt;, year &lt;int&gt;, author1_data &lt;chr&gt;</code></pre>
+##    title_data        paper_id   source   type     year author1_data       
+##    &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;              
+##  1 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  2003 Rabb, J., Petro-Ca~
+##  2 Well-head Pressu~ &quot;        ~ &quot;      ~ &quot;     ~  2013 Spyrou, Charidimos~
+##  3 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1994 Larsen, Leif, Stat~
+##  4 Integrating Pres~ &quot;        ~ &quot;      ~ &quot;     ~  2006 Rahim, Zillur, Res~
+##  5 Automated Pressu~ &quot;        ~ &quot;      ~ &quot;     ~  2011 Rees, Hugh Richard~
+##  6 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1995 Sahni, A., Univers~
+##  7 How Wellbore Dyn~ &quot;        ~ &quot;      ~ &quot;     ~  1991 Mattar, L., Fekete~
+##  8 Numerical Soluti~ &quot;        ~ &quot;      ~ &quot;     ~  1993 Warren, G.M., SIMT~
+##  9 Software Showcas~ &quot;        ~ &quot;      ~ &quot;     ~  1992 Baldwin, J.O., Con~
+## 10 Pressure Transie~ &quot;        ~ &quot;      ~ &quot;     ~  1986 Clonts, M.D., ARCO~
+## # ... with 153 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># remove files that were created</span>
 files &lt;-<span class="st"> </span><span class="kw">c</span>(htm_<span class="dv">1</span>, htm_<span class="dv">2</span>, htm_<span class="dv">3</span>, htm_<span class="dv">4</span>)
 <span class="kw">file.remove</span>(files)</code></pre></div>
